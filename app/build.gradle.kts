@@ -7,6 +7,7 @@ plugins {
 
 android {
     compileSdk= 33
+    @Suppress("UnstableApiUsage")
     buildFeatures {
         dataBinding = true
     }
@@ -24,6 +25,7 @@ android {
     buildTypes {
         release {
             isMinifyEnabled= false
+            @Suppress("UnstableApiUsage")
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
@@ -32,12 +34,13 @@ android {
         targetCompatibility=JavaVersion.VERSION_18
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "18"
 
         // Enable Coroutines and Flow APIs
         freeCompilerArgs = freeCompilerArgs + "-Xopt-in=kotlinx.coroutines.ExperimentalCoroutinesApi"
         freeCompilerArgs = freeCompilerArgs + "-Xopt-in=kotlinx.coroutines.FlowPreview"
     }
+    @Suppress("UnstableApiUsage")
     buildFeatures {
         compose=true
         dataBinding = true
